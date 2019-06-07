@@ -21,33 +21,19 @@ defined( 'ABSPATH' ) || exit;
 
 if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 		// ONLY RUN IF WOOCOMMERCE IS ACTIVE....
-		
+
 	if ( is_admin() ) {
 		$taxonomy= 'product_cat';
-	
-		add_action( "{$taxonomy}_add_form_fields", 'add_cat_disc_form', 10); 
-		add_action( "{$taxonomy}_edit_form_fields", 'edit_cat_disc_form', 10, 2 ); 
+
+		add_action( "{$taxonomy}_add_form_fields", 'add_cat_disc_form', 10);
+		add_action( "{$taxonomy}_edit_form_fields", 'edit_cat_disc_form', 10, 2 );
 		if (!function_exists('add_cat_disc_form')) {
 			function add_cat_disc_form( $taxonomy ) {
 				?>
-					<div class="form-field">
-						<label for="chiptext">Chip Text</label>
-						<input name="chiptext" id="chiptext" type="text" size="40" value="" placeholder="">
-						<p class="description">Add text to see a preview of the chip that will appear above the product name.</p>
-					</div>
-					<div class="form-field">
-						<label for="chipbgcolor">Chip Color</label>
-						<input name="chipbgcolor" id="chipbgcolor" type="text" size="40" value="" placeholder="">
-						<p class="description">Choose color or add HEX code to see a preview of the chip.</p>
-					</div>
-					<div class="form-field">
-						<label for="chiptxtcolor">Chip Text Color</label>
-						<input name="chiptxtcolor" id="chiptxtcolor" type="text" size="40" value="" placeholder="">
-						<p class="description">Choose color or add HEX code to see a preview of the chip.</p>
-					</div>
-					<div class="form-field" id="chip-demo">
-						<label>Preview</label>
-						<div class="white-display-box"><div class="tag-chip"></div></div>
+					<div class="form-field term-disclaimer-wrap">
+						<label for="disclaimer">Disclaimer</label>
+						<input name="disclaimer" id="disclaimer" type="text" size="40" value="<?php echo $cat_disc; ?>" placeholder="">
+						<p class="description">Adds emphasized text in Short Description as a disclaimer for all products in this category.</p>
 					</div>
 				<?php
 			};
@@ -69,9 +55,9 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 				<?php
 			};
 		}
-		
+
 		add_action ( "edited_{$taxonomy}", 'save_cat_disc_form' );
-		add_action ( "created_{$taxonomy}",'save_cat_disc_form' );		
+		add_action ( "created_{$taxonomy}",'save_cat_disc_form' );
 		if (!function_exists('save_cat_disc_form')) {
 			function save_cat_disc_form( $term_id ) {
 				if ( isset( $_POST['disclaimer'] ) ) {
@@ -83,10 +69,10 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 						add_option( "disc_$termid", $_POST['disclaimer'], '', 'yes' );
 					}
 				}
-			} 
-		} 
+			}
+		}
 	}
-	
+
 	add_filter('woocommerce_short_description', 'add_cat_disc', 15);
 	if (!function_exists('add_cat_disc')) {
 		function add_cat_disc($post_post_excerpt){
