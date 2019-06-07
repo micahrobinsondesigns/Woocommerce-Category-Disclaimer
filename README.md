@@ -1,1 +1,1 @@
-# Woocommerce-Category-Disclaimer
+# Woocommerce Category Disclaimer
