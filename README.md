@@ -1,6 +1,6 @@
 # Woocommerce Category Disclaimer
 
-This plugin can be used to create disclaimers or notes that you want to add to the short description of every product in a category.
+This plugin can be used to create disclaimers or notes that you want to add to the end of the short description of every product in a category. It is worth noting that the "disclaimer" will be italicized to separate it from the rest of the content visually.
 
 ## Add content, including html tags, to the field in your chosen category
 
