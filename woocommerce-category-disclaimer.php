@@ -71,7 +71,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 		}
 	}
 
-	add_filter('woocommerce_short_description', 'add_cat_disc', 15);
+	add_filter('woocommerce_short_description', 'add_cat_disc', 10);
 	if (!function_exists('add_cat_disc')) {
 		function add_cat_disc($post_post_excerpt){
 			if ( is_product() ) {
