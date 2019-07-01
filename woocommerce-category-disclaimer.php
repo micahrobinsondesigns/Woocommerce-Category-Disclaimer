@@ -86,7 +86,11 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 							$disclaimers.= $discStr . "\n";
 						}
 					}
-					return $post_post_excerpt . nl2br("<p><em>{$disclaimers}</em></p>");
+					if($disclaimers !== '') {
+						return $post_post_excerpt . nl2br("<p><em>{$disclaimers}</em></p>");
+					} else {
+						return $post_post_excerpt;
+					}
 				} else {
 					return $post_post_excerpt;
 				}
