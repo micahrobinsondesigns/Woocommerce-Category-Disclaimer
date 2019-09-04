@@ -9,3 +9,5 @@ This plugin can be used to create disclaimers or notes that you want to add to t
 ## and enjoy not having to copy and paste content across a whole category of products!
 
 ![Uranium-Ore](https://user-images.githubusercontent.com/6086346/59138382-9c51d900-8941-11e9-8e85-50a0570c07a7.png)
+
+**NOTE:** If you are making a Variable Product make sure you type something into the Short Description. Otherwise, your disclaimer will populate the Variation Descriptions as well.
