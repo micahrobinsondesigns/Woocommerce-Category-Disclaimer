@@ -30,7 +30,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 				?>
 					<div class="form-field term-disclaimer-wrap">
 						<label for="disclaimer">Disclaimer</label>
-						<input name="disclaimer" id="disclaimer" type="text" size="40" value="<?php echo $cat_disc; ?>" placeholder="">
+						<input name="disclaimer" id="disclaimer" type="text" size="40" value="" placeholder="">
 						<p class="description">Adds emphasized text in Short Description as a disclaimer for all products in this category.</p>
 					</div>
 				<?php
@@ -76,8 +76,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 		function add_cat_disc($post_post_excerpt){
 			if ( is_product() ) {
 				global $product;
-			    $discount = 0;
-				if ($product !== null) {
+				if (($product !== null) && ($post_post_excerpt === $shortDescription)) {
 					$catIds= $product->get_category_ids();
 					$disclaimers= '';
 					foreach( $catIds as $catId ){
